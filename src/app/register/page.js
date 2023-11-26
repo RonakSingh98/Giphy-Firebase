@@ -17,7 +17,7 @@ const RegisterLogin = () => {
       console.log('Registration successful!');
       alert("Registration Successful !!")
     } catch (error) {
-      alert('Error registering user:', error.message);
+      alert('Email already in use');
     }
   };
 
@@ -27,7 +27,7 @@ const RegisterLogin = () => {
       console.log('Login successful!');
       router.push('/giphy'); // Navigate to the '/giphy' path after successful login
     } catch (error) {
-      alert('Unsuccessful: ', error.message);
+      alert('wrong password or email');
     }
   };
 
