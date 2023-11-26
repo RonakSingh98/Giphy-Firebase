@@ -1,0 +1,42 @@
+.bar{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+.giphy{
+    width: 950px;
+    margin-left: 70px;
+}
+.btn{
+    width: 200px;
+}
+.gifs{
+    
+        margin: auto;
+        margin-top: 50px;
+        margin-left: 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 40px;
+        row-gap:70px;
+    
+
+}
+.limit{
+    width: 250px;
+    height: 250px;
+
+}
+.limit:hover{
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+    transform: scale(1.1);
+}
+.pagination{
+    margin: 30px;
+    margin-left: 60px;
+    justify-content: flex-start;
+    display: flex;
+}
+.pagination button{
+    margin-left: 10px;
+}
