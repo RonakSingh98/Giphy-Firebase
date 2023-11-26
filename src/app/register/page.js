@@ -27,7 +27,7 @@ const RegisterLogin = () => {
       console.log('Login successful!');
       router.push('/giphy'); // Navigate to the '/giphy' path after successful login
     } catch (error) {
-      console.error('Error logging in:', error.message);
+      alert('Registration Unsuccessful: ', error.message);
     }
   };
 
