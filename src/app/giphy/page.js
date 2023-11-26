@@ -12,7 +12,7 @@ const GiphySearch = () => {
   const [query, setQuery] = useState("");
   const [gifs, setGifs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const gifsPerPage = 12;
+  const gifsPerPage = 4;
   const route =useRouter();
 
   const handleSearch = async () => {
@@ -65,12 +65,17 @@ const GiphySearch = () => {
       </div>
       <div className="gifs">
         {currentGifs.map((gif) => (
+          <div>
           <img
             className="limit"
             key={gif.id}
             src={gif.images.fixed_height.url}
             alt={gif.title}
           />
+          <p className="titl">
+            {gif.title}
+          </p>
+          </div>
         ))}
       </div>
       <div className="pagination">
