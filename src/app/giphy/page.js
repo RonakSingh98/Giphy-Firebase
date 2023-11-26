@@ -4,12 +4,16 @@ import { searchGifs } from "./giphy";
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import "./page.css";
+import { useRouter } from "next/navigation";
+import SendIcon from '@mui/icons-material/Send';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const GiphySearch = () => {
   const [query, setQuery] = useState("");
   const [gifs, setGifs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const gifsPerPage = 12;
+  const route =useRouter();
 
   const handleSearch = async () => {
     try {
@@ -38,6 +42,10 @@ const GiphySearch = () => {
     setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
   };
 
+  const logout =() =>{
+    route.push('/')
+  }
+
   return (
     <div>
       <div className="bar">
@@ -48,8 +56,11 @@ const GiphySearch = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button className="btn" variant="contained" onClick={handleSearch}>
+        <Button className="btn" variant="contained" endIcon={<SendIcon />} onClick={handleSearch}>
           Search
+        </Button>
+        <Button className="btn" variant="contained" endIcon={<LogoutIcon />} color="error" onClick={logout}>
+          Logout
         </Button>
       </div>
       <div className="gifs">
@@ -63,7 +74,7 @@ const GiphySearch = () => {
         ))}
       </div>
       <div className="pagination">
-        <Button variant="contained" onClick={handlePrevPage} disabled={currentPage === 1}>
+        <Button variant="contained" onClick={handlePrevPage} color="error" disabled={currentPage === 1}>
           Prev
         </Button>
         {Array.from({ length: Math.ceil(gifs.length / gifsPerPage) }).map(
