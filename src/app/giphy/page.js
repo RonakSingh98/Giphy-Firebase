@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import "./page.css";
 import { useRouter } from "next/navigation";
-import SendIcon from '@mui/icons-material/Send';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 const GiphySearch = () => {
@@ -72,9 +71,6 @@ const GiphySearch = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button className="btn" variant="contained" endIcon={<SendIcon />} onClick={() => handleSearch(query)}>
-          Search
-        </Button>
         <Button className="btn" variant="contained" endIcon={<LogoutIcon />} color="error" onClick={logout}>
           Logout
         </Button>
